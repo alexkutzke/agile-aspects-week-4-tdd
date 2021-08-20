@@ -1,0 +1,28 @@
+{
+  "name": "roman-to-decimal",
+  "version": "1.0.0",
+  "description": "Especialização em Desenvolvimento Ágil de Software",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexkutzke/agile-aspects-week-4-tdd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexkutzke/agile-aspects-week-4-tdd/issues"
+  },
+  "homepage": "https://github.com/alexkutzke/agile-aspects-week-4-tdd#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.0",
+    "jest": "^27.0.6"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  }
+}
