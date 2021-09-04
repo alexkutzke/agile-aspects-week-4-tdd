@@ -1,6 +1,6 @@
 import { RomanToDecimal } from './roman_to_decimal';
 
-// Apenas algarismo romano com um caractere
+// Apenas número romano com um caractere
 
 test('if creates the number 1 from string I', () => {
     const romanToDecimal = new RomanToDecimal('I');
@@ -37,9 +37,7 @@ test('if creates the number 1000 from string M', () => {
     expect(romanToDecimal.toDecimal()).toEqual(1000);
 });
 
-
-// Algarismo romanos com dois caracteres (sem subtração)
-// Primeira necessidade de refatorar, reduzi os ifs em dois vetores pra comparar com base no índice
+// Algarismo romanos com dois caracteres (sem subtração, começa a somar)
 
 test('if creates the number 2 from string II', () => {
     const romanToDecimal = new RomanToDecimal('II');
@@ -57,8 +55,6 @@ test('if creates the number 1668 from string MDCLXVIII', () => {
     const romanToDecimal = new RomanToDecimal('MDCLXVIII');
     expect(romanToDecimal.toDecimal()).toEqual(1668);
 });
-
-// explodido em várias funções para passar os testes, função toDecimal ficando cada vez mais complexa
 
 // Testes com subtração
 
@@ -82,7 +78,7 @@ test('if creates the number 1664 from string MDCLXIV', () => {
     expect(romanToDecimal.toDecimal()).toEqual(1664);
 });
 
-// Maior string possível antes de usar barra no número romano
+// Maior string possível antes de usar barra sobre as letras no número romano
 
 test('if creates the number 3999 from string MMMCMXCIX', () => {
     const romanToDecimal = new RomanToDecimal('MMMCMXCIX');
