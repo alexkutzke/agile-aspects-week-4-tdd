@@ -45,5 +45,4 @@ function validateIsRomanNumberIsDecimal(charValue) {
     }
 }
 
-
 module.exports = convertRomanToDecimal;
