@@ -1,8 +1,4 @@
 class Converter {
-  
-  constructor(){
-
-  }
 
   isFilledNumber(romanNumber){
     return romanNumber != null && romanNumber != undefined && romanNumber != '';
@@ -10,12 +6,11 @@ class Converter {
   
   isValidCharacters(romanNumber){
     let isValid = true;
-    const acceptedRomanNumbers = this.getAcceptedRomanNumbers();
-  
+
     for(let i = 0; i < romanNumber.length; i ++){
       let character = romanNumber.substring(i, i+1);
   
-      if(!acceptedRomanNumbers.has(character)){
+      if(!this.getAcceptedRomanNumbers().has(character)){
         isValid = false;
       }
     }
@@ -38,24 +33,26 @@ class Converter {
   }
   
   calculateDecimalNumber(romanNumber){
-    const acceptedRomanNumbers = this.getAcceptedRomanNumbers();
     let total = 0;
 
-    for(let i = 0; i < romanNumber.length; i ++){
-      let actualCharacter = romanNumber.substring(i, i+1);
-      let nextCharacter;
-      if(romanNumber.length > 1)
-        nextCharacter = romanNumber.substring(i+1, i+2);
+    for(let i = 0; i < romanNumber.length; i++){
+      let currentNumber = romanNumber[i];
+      let currentNumberConverted = this.getAcceptedRomanNumbers().get(currentNumber);
 
-      if(romanNumber.length == 1)
-        total = acceptedRomanNumbers.get(romanNumber.substring(i, i+1));
-      else {
-        if(nextCharacter <= actualCharacter)
-          total += acceptedRomanNumbers.get(romanNumber.substring(i, i+1));
-        else
-          total -= acceptedRomanNumbers.get(romanNumber.substring(i, i+1));
+      if(i + 1 < romanNumber.length) {
+        let nextNumber = romanNumber[i+1];
+        let nextNumberConverted = this.getAcceptedRomanNumbers().get(nextNumber);
+
+        if(currentNumberConverted >= nextNumberConverted) {
+          total += currentNumberConverted;
+        }else{
+          total -= currentNumberConverted;
+        }
+      }else{
+        total += currentNumberConverted;
       }
     }
+
     return total;
   }
 
