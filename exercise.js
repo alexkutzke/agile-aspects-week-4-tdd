@@ -27,6 +27,4 @@ function validateValue(value) {
   return true;
 }
 
-convertRomanToDecimal("XXV");
-
 export { convertRomanToDecimal }
