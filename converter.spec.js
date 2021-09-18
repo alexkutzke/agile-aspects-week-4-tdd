@@ -50,17 +50,17 @@ describe("Número romano para decimal", () => {
     expect(convert.run()).toEqual(10);
   });
 
-  test("Deve retornar 15", () => {
-    const convert = new Converter("Xv");
+  xtest("Deve retornar 15", () => {
+    const convert = new Converter("XV");
     expect(convert.run()).toEqual(15);
   });
 
-  test("Deve retornar 20", () => {
+  xtest("Deve retornar 20", () => {
     const convert = new Converter("XX");
     expect(convert.run()).toEqual(20);
   });
 
-  test("Deve retornar 50", () => {
+  xtest("Deve retornar 50", () => {
     const convert = new Converter("L");
     expect(convert.run()).toEqual(50);
   });
