@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/alexkutzke/agile-aspects-week-4-tdd#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.15.0",
-    "jest": "^27.0.6"
+    "@babel/preset-env": "^7.22.14",
+    "jest": "^27.5.1"
   },
   "jest": {
     "transform": {
