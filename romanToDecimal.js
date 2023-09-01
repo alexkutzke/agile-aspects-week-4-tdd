@@ -1,4 +1,4 @@
-const valores = new Map([
+const romanNumerals = new Map([
     ['I', 1],
     ['V', 5],
     ['X', 10],
@@ -8,17 +8,33 @@ const valores = new Map([
     ['M', 1000]
 ]);
 
-function romanToDecimal(romanValue){
-    let resultado = 0;
-    
-    if(romanValue){
-        let romanValueSplit = romanValue.split('');
-        romanValueSplit.forEach(function(element, index){
-            resultado += valores.get(element) < valores.get(romanValueSplit[index+1])
-            ? -valores.get(element) : valores.get(element);
-        });
+function romanToDecimal(romanValue) {
+
+    if (!isValidRoman(romanValue)) {
+        throw new Error('Invalid entry roman numeral!');
     }
-    return resultado;
+
+    let decimalValue = 0;
+    let romanValueSplit = romanValue.split('');
+
+    romanValueSplit.forEach((element, index) => {
+        const currentValue = romanNumerals.get(element);
+        const nextValue = romanNumerals.get(romanValueSplit[index + 1]);
+        decimalValue += calculateDecimalValue(currentValue, nextValue);
+    });
+
+    return decimalValue;
+}
+
+function isValidRoman(romanValue) {
+    if (typeof romanValue !== 'string' || !romanValue.match(/^[IVXLCDM]+$/)) {
+        return false
+    }
+    return true
+}
+
+function calculateDecimalValue(currentValue, nextValue) {
+    return currentValue < nextValue ? -currentValue : currentValue;
 }
 
 export { romanToDecimal }
