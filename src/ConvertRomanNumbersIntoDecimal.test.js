@@ -2,40 +2,38 @@ import ConvertRomanNumbersIntoDecimal from './ConvertRomanNumbersIntoDecimal'
 import MyErrors from './utils/errors/MyErrors'
 
 describe('Class ConvertRomanNumbersIntoDecimal', () => {
+  let convertRomanNumbersIntoDecimal;
+
+  beforeEach(() => {
+    convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal();
+  });
 
   describe('Single Roman Characters', () => {
     test('should convert "I" to 1', () => {
-      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
       expect(convertRomanNumbersIntoDecimal.convert('I')).toBe(1)
     })
 
     test('should convert "V" to 5', () => {
-      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
       expect(convertRomanNumbersIntoDecimal.convert('V')).toBe(5)
     })
 
     test('should convert "X" to 10', () => {
-      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
       expect(convertRomanNumbersIntoDecimal.convert('X')).toBe(10)
     })
 
     test('should convert "L" to 50', () => {
-      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
       expect(convertRomanNumbersIntoDecimal.convert('L')).toBe(50)
     })
 
     test('should convert "C" to 100', () => {
-      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
       expect(convertRomanNumbersIntoDecimal.convert('C')).toBe(100)
     })
 
     test('should convert "D" to 500', () => {
-      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
       expect(convertRomanNumbersIntoDecimal.convert('D')).toBe(500)
     })
 
     test('should convert "M" to 1000', () => {
-      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
       expect(convertRomanNumbersIntoDecimal.convert('M')).toBe(1000)
     })
   })
@@ -50,7 +48,6 @@ describe('Class ConvertRomanNumbersIntoDecimal', () => {
     ])
 
       ('should correctly convert the Roman number %s to the decimal number %i', (roman, decimal) => {
-        const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal();
         expect(convertRomanNumbersIntoDecimal.convert(roman)).toBe(decimal);
       });
   });
@@ -65,7 +62,6 @@ describe('Class ConvertRomanNumbersIntoDecimal', () => {
       ['CM', 900]
     ])
       ('should correctly convert the Roman number %s to the decimal number %i', (roman, decimal) => {
-        const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
         expect(convertRomanNumbersIntoDecimal.convert(roman)).toBe(decimal)
       })
   });
@@ -73,17 +69,14 @@ describe('Class ConvertRomanNumbersIntoDecimal', () => {
   describe('Error Handling', () => {
 
     test('should throw an error for invalid characters', () => {
-      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
       expect(() => convertRomanNumbersIntoDecimal.convert('Z')).toThrowError(MyErrors)
     });
 
     test('should throw an error for empty string', () => {
-      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
       expect(() => convertRomanNumbersIntoDecimal.convert('')).toThrowError(MyErrors)
     });
 
     test('should throw an error for null input', () => {
-      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
       expect(() => convertRomanNumbersIntoDecimal.convert(null)).toThrowError(MyErrors)
     });
 
