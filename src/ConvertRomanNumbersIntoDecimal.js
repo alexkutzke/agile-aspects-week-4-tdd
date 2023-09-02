@@ -1,19 +1,37 @@
-const MyErrors = require('./utils/errors/MyErrors')
+import MyErrors from './utils/errors/MyErrors'
 
 class ConvertRomanNumbersIntoDecimal {
+  static romanToDecimalMap = {
+    'I': 1,
+    'V': 5,
+    'X': 10,
+    'L': 50,
+    'C': 100,
+    'D': 500,
+    'M': 1000
+  }
 
-  //Testes iniciais
-  static convert(romanNumber) {
-    switch (romanNumber) {
-      case 'I':
-        return 1
-      case 'V':
-        return 5
-      default:
-        return new MyErrors.notFoundError()
+  convert(romanNumber) {
+    let decimalNumber = 0;
+
+    for (let i = 0; i < romanNumber.length; i++) {
+      const currentDecimal = ConvertRomanNumbersIntoDecimal.romanToDecimalMap[romanNumber[i]];
+      const nextDecimal = ConvertRomanNumbersIntoDecimal.romanToDecimalMap[romanNumber[i + 1]];
+      
+      if (currentDecimal === undefined) {
+        throw new MyErrors.notFoundError();
+      }
+
+      if (nextDecimal > currentDecimal) {
+        decimalNumber -= currentDecimal;
+      } else {
+        decimalNumber += currentDecimal;
+      }
     }
+
+    return decimalNumber;
   }
 }
 
-console.log(ConvertRomanNumbersIntoDecimal.convert('V'))
-module.exports = ConvertRomanNumbersIntoDecimal
+
+export default ConvertRomanNumbersIntoDecimal
