@@ -1,7 +1,7 @@
-class MyErrors {
-  constructor (message) {
+class MyErrors extends Error {
+  constructor(message) {
+    super(message)
     this.name = 'MyErrors'
-    this.message = message || 'Erro desconhecido'
   }
 
   static notFoundError() {
@@ -9,4 +9,4 @@ class MyErrors {
   }
 }
 
-module.exports = MyErrors
+export default MyErrors
