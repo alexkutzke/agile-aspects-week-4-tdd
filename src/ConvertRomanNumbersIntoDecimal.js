@@ -14,6 +14,10 @@ class ConvertRomanNumbersIntoDecimal {
   convert(romanNumber) {
     let decimalNumber = 0;
 
+    if (romanNumber === null || romanNumber === '') {
+      throw MyErrors.notFoundError();
+    }
+
     for (let i = 0; i < romanNumber.length; i++) {
       const currentDecimal = ConvertRomanNumbersIntoDecimal.romanToDecimalMap[romanNumber[i]];
       const nextDecimal = ConvertRomanNumbersIntoDecimal.romanToDecimalMap[romanNumber[i + 1]];

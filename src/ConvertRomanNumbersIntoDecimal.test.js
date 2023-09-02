@@ -1,5 +1,5 @@
 import ConvertRomanNumbersIntoDecimal from './ConvertRomanNumbersIntoDecimal'
-import { MyErrors } from './utils/errors/MyErrors'
+import MyErrors from './utils/errors/MyErrors'
 
 describe('Class ConvertRomanNumbersIntoDecimal', () => {
 
@@ -68,5 +68,24 @@ describe('Class ConvertRomanNumbersIntoDecimal', () => {
         const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
         expect(convertRomanNumbersIntoDecimal.convert(roman)).toBe(decimal)
       })
+  });
+
+  describe('Error Handling', () => {
+
+    test('should throw an error for invalid characters', () => {
+      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
+      expect(() => convertRomanNumbersIntoDecimal.convert('Z')).toThrowError(MyErrors)
+    });
+
+    test('should throw an error for empty string', () => {
+      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
+      expect(() => convertRomanNumbersIntoDecimal.convert('')).toThrowError(MyErrors)
+    });
+
+    test('should throw an error for null input', () => {
+      const convertRomanNumbersIntoDecimal = new ConvertRomanNumbersIntoDecimal()
+      expect(() => convertRomanNumbersIntoDecimal.convert(null)).toThrowError(MyErrors)
+    });
+
   });
 })
