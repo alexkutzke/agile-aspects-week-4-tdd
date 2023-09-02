@@ -20,6 +20,11 @@ test("Should convert the roman number IV to number 4", () => {
    expect(numero).toEqual(4);
 })
 
+test("Should convert the roman number V to number 5", () => {
+   let numero = NumerosRomanosConverter.romanoParaNumero('V');
+   expect(numero).toEqual(5);
+})
+
 test("Should convert the roman number X to number 10", () => {
    let numero = NumerosRomanosConverter.romanoParaNumero('X');
    expect(numero).toEqual(10);
