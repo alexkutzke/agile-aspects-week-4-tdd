@@ -27,3 +27,7 @@ test('Converte "L" para 50', () => {
 test('Converte "IX" para 9', () => {
   expect(romanToDecimal('IX')).toBe(9);
 });
+
+test('Converte "XV" para 15', () => {
+  expect(romanToDecimal('XV')).toBe(15);
+});
