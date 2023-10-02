@@ -1,5 +1,5 @@
 {
-  "name": "roman-to-decimal",
+  "name": "romanToDecimal",
   "version": "1.0.0",
   "description": "Especialização em Desenvolvimento Ágil de Software",
   "main": "index.js",
