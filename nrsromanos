@@ -1,0 +1,38 @@
+function translateRomanNumeral(character) {
+    const powersOf10 = "IXCM";
+    const fives = "VLD";
+
+    const powerValue = Math.floor(Math.pow(10, powersOf10.indexOf(character))) || 0;
+    const fiveValue = 5 * Math.floor(Math.pow(10, fives.indexOf(character))) || 0;
+
+    return powerValue + fiveValue;
+}
+
+function isValidRomanNumeral(romanNumberString) {
+    if (romanNumberString === null) return false;
+
+    const validChars = "MDCLXVI";
+
+    for (let index = 0; index < romanNumberString.length; index++) {
+        if (!validChars.includes(romanNumberString[index])) return false;
+    }
+
+    return true;
+}
+
+export function romanToDecimal(romanNumberString) {
+    if (!isValidRomanNumeral(romanNumberString)) return 0;
+
+    let decimal = 0;
+    let previousValue = 0;
+
+    for (let i = romanNumberString.length - 1; i >= 0; i--) {
+        const value = translateRomanNumeral(romanNumberString.charAt(i));
+        const sign = Math.sign(value + 0.5 - previousValue);
+
+        decimal += value * sign;
+        previousValue = value;
+    }
+
+    return decimal;
+}
