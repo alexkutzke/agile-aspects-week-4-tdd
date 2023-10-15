@@ -1,0 +1,21 @@
+import { romanToDec } from './numerosRomanos';
+
+describe("RomanToDecimal", () => {
+    test("Valores Válidos", () => {
+        // Testes para valores válidos
+        expect(romanToDec('II')).toEqual(2);
+        expect(romanToDec('DCLXVI')).toEqual(666);
+        expect(romanToDec('MDCLXVI')).toEqual(1666);
+        expect(romanToDec('CLVII')).toEqual(157);
+        expect(romanToDec('D')).toEqual(500);
+    });
+
+    test("Valores Inválidos", () => {
+        // Testes para valores inválidos
+        expect(romanToDec('')).toEqual(0);
+        expect(romanToDec('a')).toEqual(0);
+        expect(romanToDec(null)).toEqual(0);
+        expect(romanToDec('undefined')).toEqual(0);
+        expect(romanToDec('CARLINHO')).toEqual(0);
+    });
+});
